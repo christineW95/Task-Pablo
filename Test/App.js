@@ -50,18 +50,19 @@ const App = () => {
       <ApolloProvider client={Queries.client}>
         <View>
           <FlatList data={films}
+            ListHeaderComponent={() => (<View><Text style={{ fontSize: 25, fontWeight: 'bold' }}>Films</Text></View>)}
             key={Math.random()}
             renderItem={({ item }) => {
               return (
-                <>
-                  <Text>{`${item.title}: Directed by ${item.director}`}</Text>
-                  <Text>{`${item.created}: Edited In ${item.edited}`}</Text>
+                <View style={{ borderRadius: 10, borderWidth: 1, margin: 10, padding: 10 }}>
+                  <Text style={{ fontSize: 25, fontWeight: 'bold' }}>{`${item.title}: Directed by ${item.director}`}</Text>
+                  <Text>{`${item.created}`}</Text>
                   <Text>{`${item.releaseDate}`}</Text>
                   {
-                    isPlanetExist(selectedPlanet?.id, item) ? <Text>{`${selectedPlanet?.name}`}</Text> : null
+                    isPlanetExist(selectedPlanet?.id, item) ? <Text>Planet : {`${selectedPlanet?.name}`}</Text> : null
                   }
 
-                </>);
+                </View>);
 
             }} />
         </View>
