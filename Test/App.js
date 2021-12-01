@@ -25,15 +25,18 @@ const App = () => {
     <SafeAreaView>
       <ApolloProvider client={client}>
         <View>
-          <Text>Hello</Text>
-          {/* {
-            result.data.allFilms.films.map(item => {
-              console.log({ item });
-            })
-          } */}
           <FlatList data={data}
             renderItem={({ item }) => {
-              return <Text>{`${item.title}: Directed by ${item.director}`}</Text>
+              return (
+                <>
+                  <Text>{`${item.title}: Directed by ${item.director}`}</Text>
+                  <Text>{`${item.created}: Edited In ${item.edited}`}</Text>
+                  <Text>{`${item.releaseDate}`}</Text>
+                  {item.planetConnection.planets.map((planet) => {
+                    return <Text>{`${planet.name}`}</Text>
+                  })}
+                </>);
+
             }} />
         </View>
       </ApolloProvider>

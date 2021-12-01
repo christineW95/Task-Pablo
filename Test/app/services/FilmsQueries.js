@@ -3,9 +3,19 @@ const query = gql`
   {
     allFilms {
       films {
+        id
         title
-        episodeID
         director
+        releaseDate
+        planetConnection {
+          totalCount
+          planets {
+            name
+            population
+          }
+        }
+        created
+        edited
       }
     }
   }
