@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-const query = gql`
+const getAllFilms = gql`
   {
     allFilms {
       films {
@@ -20,4 +20,4 @@ const query = gql`
     }
   }
 `;
-export default query;
+export default getAllFilms;
