@@ -14,4 +14,4 @@ const getPlanetsData = async () => {
     const query = getAllPlanets;
     return await client.query({ query });
 };
-export { getFilmsData, getPlanetsData };
+export { getFilmsData, getPlanetsData, client };

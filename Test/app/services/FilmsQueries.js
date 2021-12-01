@@ -10,8 +10,8 @@ const getAllFilms = gql`
         planetConnection {
           totalCount
           planets {
+              id
             name
-            population
           }
         }
         created
